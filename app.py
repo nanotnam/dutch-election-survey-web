@@ -26,5 +26,5 @@ def filter_data():
     return render_template('filtered.html', filtered_data=filtered_data)
 
 if __name__ == "__main__":
-    app.run(host = '0.0.0.0',debug=True)
+    app.run(host = '10000',debug=True)
 
