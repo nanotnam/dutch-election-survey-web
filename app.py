@@ -25,6 +25,14 @@ def filter_data():
     # Render template with filtered data
     return render_template('filtered.html', filtered_data=filtered_data)
 
+@app.route("/codebook2023")
+def codebook2023():
+    return render_template("codebook2023.html")
+
+@app.route("/codebook2021")
+def codebook2021():
+    return render_template("codebook2021.html")
+
 if __name__ == "__main__":
     app.run(host = '0.0.0.0',debug=True)
 
