@@ -12,12 +12,14 @@
                 width: 100%;
                 object-fit: cover;
             }
+
+
+
         </style>
     </head>
     <body>
         <div class="container">
             <h1 class="text-center mt-2 mb-4">Dutch Election Survey Data</h1>
-            <img class="img-fluid" id="banner" src="static/banner.jpg">
             <h2 class="text-center mt-2 mb-4">About</h2>
             <p class="lead">
                 This site contain Dutch Election Survey Data from 1994 to 2023
@@ -25,11 +27,16 @@
             <br>
             <br>
             <h2 class="text-center mt-2 mb-4">
-                Data Data Data
+                year filter
             </h2>
-            <p class="bodytext">
-                TODO - Show data here
-            </p>
+            <form action="/filter" method="GET">
+              {% for year in year_list %}
+                  <input type="checkbox" name="{{ year }}" value="{{ year }}"> {{ year }}<br>
+              {% endfor %}
+              <button type="submit">Filter</button>
+          </form>
+
+
             <div class="text-center">
                 <button type="button" class="btn btn-primary btn-lg">Contact Us</button>
                 <p class="mt-4">Copyright 2022, Nam</p>
