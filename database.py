@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine, text
 import pandas as pd
 import os
-db_connection_string = os.environ.get('db_connection_string')
+DB_CONNECTION_STRING = os.environ.get('DB_CONNECTION_STRING')
 
-engine = create_engine(db_connection_string,
+engine = create_engine(DB_CONNECTION_STRING,
                        connect_args={
         "ssl": {
             "ssl_ca": "/etc/ssl/cert.pem"

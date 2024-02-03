@@ -19,10 +19,13 @@ def filter_data():
     for year in range(2020, 2034):  # Assuming the range of years
         if request.args.get(str(year)):
             selected_years.append(str(year))
+    if selected_years == []:
+        selected_years = [2017,2021,2023]
     # Query the database based on selected options using SQLAlchemy
     # Use selected_options dictionary to construct your filter query
     filtered_data = load_data_w_year(selected_years)
     # Render template with filtered data
+    
     return render_template('filtered.html', filtered_data=filtered_data)
 
 @app.route("/codebook2023")
