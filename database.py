@@ -12,19 +12,17 @@ engine = create_engine(db_connection_string,
 def load_year_from_db():
     with engine.connect() as conn:
         result = conn.execute(text("SELECT distinct year_survey FROM dutch_election_survey.survey"))
-        data2023 = []
+        year = []
         for row in result.all():
-            data2023.append(row._mapping)
-            df = pd.DataFrame(data2023).fillna('N/A')
+            year.append(row._mapping)
+            df = pd.DataFrame(year).fillna('N/A')
         return df
+
 
 
 def load_data_w_year(year_list):
     with engine.connect() as conn:
-        query = text("SELECT * FROM dutch_election_survey.survey WHERE year_survey IN (:years)")
-        result = conn.execute(query, {'years': year_list})
-        data2023 = []
-        for row in result.all():
-            data2023.append(row._mapping)
-            df = pd.DataFrame(data2023).fillna('N/A')
-        return df
+        query = f"SELECT * FROM dutch_election_survey.survey WHERE year_survey IN ({', '.join(str(year) for year in year_list)})"
+        result = conn.execute(text(query))
+        
+        return result.all()

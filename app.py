@@ -16,7 +16,7 @@ def hello_world():
 def filter_data():
     # Fetch checkbox options from the request object
     selected_years = []
-    for year in range(2020, 2031):  # Assuming the range of years
+    for year in range(2020, 2034):  # Assuming the range of years
         if request.args.get(str(year)):
             selected_years.append(str(year))
     # Query the database based on selected options using SQLAlchemy

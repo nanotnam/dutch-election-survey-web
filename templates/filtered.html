@@ -1,25 +1,55 @@
           <!-- Table to display filtered data -->
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <style>
+                  table {
+                      width: 100%;
+                      border-collapse: collapse;
+                  }
+          
+                  th, td {
+                      border: 1px solid #dddddd;
+                      text-align: left;
+                      padding: 8px;
+                  }
+          
+                  th {
+                      background-color: #f2f2f2;
+                  }
+          
+                  tr:nth-child(even) {
+                      background-color: #f2f2f2;
+                  }
+              </style>
+          </head>
+          <body>
+          
           <table>
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>year_survey</th>
-                    <th>wave</th>
-                    <th>var</th>
-                    <th>val</th>
-                    <th>val_string</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in filtered_data %}
-                    <tr>
-                        <td>{{ row.id }}</td>
-                        <td>{{ row.year_survey }}</td>
-                        <td>{{ row.wave }}</td>
-                        <td>{{ row.var }}</td>
-                        <td>{{ row.val }}</td>
-                        <td>{{ row.val_string }}</td>
-                    </tr>
-                {% endfor %}
-            </tbody>
+              <thead>
+              <tr>
+                  <th>id</th>
+                  <th>year_survey</th>
+                  <th>wave</th>
+                  <th>var</th>
+                  <th>val</th>
+                  <th>val_string</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for row in filtered_data %}
+              <tr>
+                  <td>{{ row.id }}</td>
+                  <td>{{ row.year_survey }}</td>
+                  <td>{{ row.wave }}</td>
+                  <td>{{ row.var }}</td>
+                  <td>{{ row.val }}</td>
+                  <td>{{ row.val_string }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
           </table>
+          
+          </body>
+          </html>
+          
